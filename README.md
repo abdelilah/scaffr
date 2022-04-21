@@ -2,6 +2,20 @@
 
 A simple code scaffolding tool to speed up repetitive coding tasks.
 
+## Installation
+
+### Install globally
+
+```shell
+npm install -g scaffr
+```
+
+### Use without installing
+
+```shell
+npx scaffr /path/to/template/folder /path/to/destination
+```
+
 ## Usage
 
 ```shell
