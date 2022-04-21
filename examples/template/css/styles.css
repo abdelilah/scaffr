@@ -1,0 +1,10 @@
+<%
+const colors = {
+    primary: 'red',
+    secondary: 'green',
+    tertiary: 'blue',
+};
+const colorsStr = _.map(colors, (value, key) => `\t--color-${key}: ${value};`);
+%>:root {
+{{ colorsStr.join("\n") }}
+}

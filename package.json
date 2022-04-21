@@ -1,0 +1,65 @@
+{
+	"name": "scaffr",
+	"version": "0.0.1",
+	"description": "A simple code scaffolding tool to speed up repetitive coding tasks.",
+	"main": "index.js",
+	"scripts": {
+		"start": "tsc --watch",
+		"build": "tsc",
+		"test": "jest --config jestconfig.json",
+		"format": "prettier --write \"src/**/*.ts\"",
+		"lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+		"prepare": "npm run build",
+		"prepublishOnly": "npm test && npm run lint",
+		"preversion": "npm run lint",
+		"version": "npm run format && git add -A src",
+		"postversion": "git push && git push --tags"
+	},
+	"files": [
+		"lib/**/*"
+	],
+	"bin": {
+		"scaffr": "./lib/bin/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/abdelilah/scaffr.git"
+	},
+	"keywords": [
+		"scaffolding",
+		"code",
+		"generator"
+	],
+	"author": "Abdelilah Sawab",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/abdelilah/scaffr/issues"
+	},
+	"homepage": "https://github.com/abdelilah/scaffr#readme",
+	"devDependencies": {
+		"@types/fs-extra": "^9.0.13",
+		"@types/glob": "^7.2.0",
+		"@types/jest": "^27.4.1",
+		"@types/lodash": "^4.14.182",
+		"@types/node": "^17.0.25",
+		"@typescript-eslint/eslint-plugin": "^5.20.0",
+		"@typescript-eslint/parser": "^5.20.0",
+		"eslint": "^8.13.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jest": "^26.1.4",
+		"jest": "^27.5.1",
+		"prettier": "^2.6.2",
+		"ts-jest": "^27.1.4",
+		"typescript": "^4.6.3"
+	},
+	"dependencies": {
+		"chalk": "^4.1.2",
+		"commander": "^9.2.0",
+		"fs-extra": "^10.1.0",
+		"glob": "^8.0.1",
+		"isbinaryfile": "^5.0.0",
+		"lodash": "^4.17.21",
+		"winston": "^3.7.2"
+	}
+}
