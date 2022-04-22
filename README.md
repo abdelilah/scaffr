@@ -19,7 +19,11 @@ npx scaffr /path/to/template/folder /path/to/destination
 ## Usage
 
 ```shell
+# Using templates from local machine
 scaffr /path/to/template/folder /path/to/destination
+
+# Or using zip files over HTTP
+scaffr https://example.com/my-template.zip /path/to/destination
 
 # Example:
 # scaffr ~/templates/project-template ./HelloWorld

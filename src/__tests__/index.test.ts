@@ -37,10 +37,25 @@ test('Scaffold a project', () => {
 
 test('Overwrite', () => {
 	// Should fail without overwrite flag
-	expect(() => scaff(templatePath, destPath)).toThrow();
+	expect(() => scaff(templatePath, destPath)).rejects.toThrow();
 
 	// Should pass with overwrite flag
 	expect(() =>
 		scaff(templatePath, destPath, { overwrite: true }),
 	).not.toThrow();
+});
+
+test('HTTP Download', () => {
+	// Download a zip template
+	const zipURL =
+		'https://github.com/abdelilah/scaffr/archive/refs/heads/master.zip';
+	const projectName = 'ScaffreeTestProjectHTTP';
+	const projectPath = path.join(os.tmpdir(), projectName);
+	expect(() =>
+		scaff(zipURL, projectPath, {
+			failOnCompileError: false,
+			overwrite: true,
+		}),
+	).not.toThrow();
+	fs.removeSync(projectPath);
 });
